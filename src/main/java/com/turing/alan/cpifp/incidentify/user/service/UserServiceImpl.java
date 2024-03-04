@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
     public void delete(Long id) {
         this.userRepository.deleteById(id);
     }
+<<<<<<< HEAD
 
     @Override
     public UserEntity update(UserEntity entity, Long id) {
@@ -41,5 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
+=======
+>>>>>>> b7a3dc2ba0900249f28b94b01f0ce5cf355b6277
     
 }

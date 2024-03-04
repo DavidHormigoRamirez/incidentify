@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.turing.alan.cpifp.incidentify.user.domain.UserEntity;
 import com.turing.alan.cpifp.incidentify.user.service.UserService;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PutMapping;
 
+=======
+>>>>>>> b7a3dc2ba0900249f28b94b01f0ce5cf355b6277
 
 
 
@@ -43,9 +46,13 @@ public class UserController {
         return this.service.getOne(id);
     }
 
+<<<<<<< HEAD
     @PutMapping("/users/{id}")
     public UserEntity update(@PathVariable(name="id") long id, @RequestBody UserEntity entity) {
         return this.service.update(entity, id);
     }
+=======
+
+>>>>>>> b7a3dc2ba0900249f28b94b01f0ce5cf355b6277
     
 }

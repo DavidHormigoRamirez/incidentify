@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 @Entity
 public class UserEntity {
 
+    // Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
@@ -17,14 +18,26 @@ public class UserEntity {
             updatable = false)
     private String email;
     @Column(nullable = false)
+    private String password;
+    @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private String surname1;
     private String surname2;
     private boolean verified;
-
-    protected UserEntity() {
+    
+    // Constructores
+    public UserEntity() {
         
+    }
+
+    // Métodos
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     public long getId() {
         return id;

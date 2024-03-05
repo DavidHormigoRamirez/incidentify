@@ -5,4 +5,6 @@ import com.turing.alan.cpifp.incidentify.user.domain.UserEntity;
 
 public interface UserService extends CustomRestService<UserEntity,Long> {
     
+
+
 }

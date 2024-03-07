@@ -25,7 +25,16 @@ public class UserEntity {
     private String surname1;
     private String surname2;
     private boolean verified;
+    private String role;
     
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     // Constructores
     public UserEntity() {
         

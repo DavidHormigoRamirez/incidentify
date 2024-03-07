@@ -1,6 +1,7 @@
 package com.turing.alan.cpifp.incidentify.user.service;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +14,11 @@ import com.turing.alan.cpifp.incidentify.user.exception.UserDoesNotExistsExcepti
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder encoder;
 
-    public UserServiceImpl(UserRepository repository){
+    public UserServiceImpl(UserRepository repository,PasswordEncoder encoder) {
         this.userRepository = repository;
+        this.encoder = encoder;
     }
 
     @Override
@@ -29,6 +32,9 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsByEmail(entity.getEmail())) {
             throw new UserAlreadyExistsException();
         }
+        String encodedPassword = this.encoder.encode(entity.getPassword());
+        entity.setPassword(encodedPassword);
+
         return this.userRepository.save(entity);
     
     }
@@ -66,6 +72,13 @@ public class UserServiceImpl implements UserService {
         
         return this.userRepository.save(currentEntity);
 
+    }
+
+    @Override
+    public UserEntity getByEmail(String email) {
+        return this.userRepository.findByEmail(email).orElseThrow(
+            ()->new UserDoesNotExistsException()
+        );
     }
 
 

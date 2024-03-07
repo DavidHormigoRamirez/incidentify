@@ -15,14 +15,16 @@ public class UserModifyDTO {
     @NotBlank
     private String surname1;
     private String surname2;
+    private String role;
 
     public UserModifyDTO(@Email @NotBlank String email, @NotBlank String password, @NotBlank String name,
-            @NotBlank String surname1, String surname2) {
+            @NotBlank String surname1, String surname2,String role) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.surname1 = surname1;
         this.surname2 = surname2;
+        this.role = role;
     }
     public String getEmail() {
         return email;
@@ -53,5 +55,11 @@ public class UserModifyDTO {
     }
     public void setSurname2(String surname2) {
         this.surname2 = surname2;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
     }
 }
